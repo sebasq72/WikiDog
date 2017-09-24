@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DiagnosticoBE.cs" />
-    <Compile Include="HistoricoSintomas.cs" />
+    <Compile Include="HistoricoSintomasBE.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="InferenciasBE.cs">
       <SubType>Code</SubType>
     </Compile>

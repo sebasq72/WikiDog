@@ -41,8 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base.cs" />
-    <Compile Include="SesionDALC.cs" />
+    <Compile Include="DiagnosticoDALC.cs" />
+    <Compile Include="HistoricoSintomas.cs" />
+    <Compile Include="InferenciasDALC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SesionDALC.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SintomasDALC.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
