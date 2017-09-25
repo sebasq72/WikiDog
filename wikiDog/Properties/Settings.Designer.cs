@@ -26,8 +26,8 @@ namespace wikiDog.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\Projects; Initial Catalog=prueba; Integrated Security=true;" +
-            " ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\Projects;Initial Catalog=WikiDog;Integrated Security=True;C" +
+            "onnect Timeout=30;Encrypt=False;TrustServerCertificate=False")]
         public string Conn {
             get {
                 return ((string)(this["Conn"]));

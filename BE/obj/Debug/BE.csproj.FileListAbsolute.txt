@@ -1,0 +1,5 @@
+E:\proyectoDotNET\WikiDog\BE\bin\Debug\BE.dll
+E:\proyectoDotNET\WikiDog\BE\bin\Debug\BE.pdb
+E:\proyectoDotNET\WikiDog\BE\obj\Debug\BE.dll
+E:\proyectoDotNET\WikiDog\BE\obj\Debug\BE.pdb
+E:\proyectoDotNET\WikiDog\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache

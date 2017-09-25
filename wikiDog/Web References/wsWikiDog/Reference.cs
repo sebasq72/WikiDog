@@ -29,7 +29,13 @@ namespace wikiDog.wsWikiDog {
     [System.Web.Services.WebServiceBindingAttribute(Name="WikiDogSoap", Namespace="http://tempuri.org/")]
     public partial class WikiDog : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback HelloWorldOperationCompleted;
+        private System.Threading.SendOrPostCallback BuscarInferenciaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CrearHistoricoSintomasOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CrearSesionOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback BuscarSesionOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -70,32 +76,132 @@ namespace wikiDog.wsWikiDog {
         }
         
         /// <remarks/>
-        public event HelloWorldCompletedEventHandler HelloWorldCompleted;
+        public event BuscarInferenciaCompletedEventHandler BuscarInferenciaCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string HelloWorld() {
-            object[] results = this.Invoke("HelloWorld", new object[0]);
-            return ((string)(results[0]));
+        public event CrearHistoricoSintomasCompletedEventHandler CrearHistoricoSintomasCompleted;
+        
+        /// <remarks/>
+        public event CrearSesionCompletedEventHandler CrearSesionCompleted;
+        
+        /// <remarks/>
+        public event BuscarSesionCompletedEventHandler BuscarSesionCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BuscarInferencia", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public InferenciasBE[] BuscarInferencia([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> IdInferencia, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] System.Nullable<int> IdRecurso) {
+            object[] results = this.Invoke("BuscarInferencia", new object[] {
+                        IdInferencia,
+                        IdRecurso});
+            return ((InferenciasBE[])(results[0]));
         }
         
         /// <remarks/>
-        public void HelloWorldAsync() {
-            this.HelloWorldAsync(null);
+        public void BuscarInferenciaAsync(System.Nullable<int> IdInferencia, System.Nullable<int> IdRecurso) {
+            this.BuscarInferenciaAsync(IdInferencia, IdRecurso, null);
         }
         
         /// <remarks/>
-        public void HelloWorldAsync(object userState) {
-            if ((this.HelloWorldOperationCompleted == null)) {
-                this.HelloWorldOperationCompleted = new System.Threading.SendOrPostCallback(this.OnHelloWorldOperationCompleted);
+        public void BuscarInferenciaAsync(System.Nullable<int> IdInferencia, System.Nullable<int> IdRecurso, object userState) {
+            if ((this.BuscarInferenciaOperationCompleted == null)) {
+                this.BuscarInferenciaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuscarInferenciaOperationCompleted);
             }
-            this.InvokeAsync("HelloWorld", new object[0], this.HelloWorldOperationCompleted, userState);
+            this.InvokeAsync("BuscarInferencia", new object[] {
+                        IdInferencia,
+                        IdRecurso}, this.BuscarInferenciaOperationCompleted, userState);
         }
         
-        private void OnHelloWorldOperationCompleted(object arg) {
-            if ((this.HelloWorldCompleted != null)) {
+        private void OnBuscarInferenciaOperationCompleted(object arg) {
+            if ((this.BuscarInferenciaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.HelloWorldCompleted(this, new HelloWorldCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.BuscarInferenciaCompleted(this, new BuscarInferenciaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CrearHistoricoSintomas", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int CrearHistoricoSintomas(HistoricoSintomasBE ObjHistoricoSintomas) {
+            object[] results = this.Invoke("CrearHistoricoSintomas", new object[] {
+                        ObjHistoricoSintomas});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CrearHistoricoSintomasAsync(HistoricoSintomasBE ObjHistoricoSintomas) {
+            this.CrearHistoricoSintomasAsync(ObjHistoricoSintomas, null);
+        }
+        
+        /// <remarks/>
+        public void CrearHistoricoSintomasAsync(HistoricoSintomasBE ObjHistoricoSintomas, object userState) {
+            if ((this.CrearHistoricoSintomasOperationCompleted == null)) {
+                this.CrearHistoricoSintomasOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCrearHistoricoSintomasOperationCompleted);
+            }
+            this.InvokeAsync("CrearHistoricoSintomas", new object[] {
+                        ObjHistoricoSintomas}, this.CrearHistoricoSintomasOperationCompleted, userState);
+        }
+        
+        private void OnCrearHistoricoSintomasOperationCompleted(object arg) {
+            if ((this.CrearHistoricoSintomasCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CrearHistoricoSintomasCompleted(this, new CrearHistoricoSintomasCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CrearSesion", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int CrearSesion(string Usuario) {
+            object[] results = this.Invoke("CrearSesion", new object[] {
+                        Usuario});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CrearSesionAsync(string Usuario) {
+            this.CrearSesionAsync(Usuario, null);
+        }
+        
+        /// <remarks/>
+        public void CrearSesionAsync(string Usuario, object userState) {
+            if ((this.CrearSesionOperationCompleted == null)) {
+                this.CrearSesionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCrearSesionOperationCompleted);
+            }
+            this.InvokeAsync("CrearSesion", new object[] {
+                        Usuario}, this.CrearSesionOperationCompleted, userState);
+        }
+        
+        private void OnCrearSesionOperationCompleted(object arg) {
+            if ((this.CrearSesionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CrearSesionCompleted(this, new CrearSesionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BuscarSesion", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public SesionBE BuscarSesion(int IdSesion) {
+            object[] results = this.Invoke("BuscarSesion", new object[] {
+                        IdSesion});
+            return ((SesionBE)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void BuscarSesionAsync(int IdSesion) {
+            this.BuscarSesionAsync(IdSesion, null);
+        }
+        
+        /// <remarks/>
+        public void BuscarSesionAsync(int IdSesion, object userState) {
+            if ((this.BuscarSesionOperationCompleted == null)) {
+                this.BuscarSesionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBuscarSesionOperationCompleted);
+            }
+            this.InvokeAsync("BuscarSesion", new object[] {
+                        IdSesion}, this.BuscarSesionOperationCompleted, userState);
+        }
+        
+        private void OnBuscarSesionOperationCompleted(object arg) {
+            if ((this.BuscarSesionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.BuscarSesionCompleted(this, new BuscarSesionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -119,27 +225,330 @@ namespace wikiDog.wsWikiDog {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class InferenciasBE {
+        
+        private SintomasBE sintomasField;
+        
+        private int idInferenciaField;
+        
+        private int idRecursoField;
+        
+        /// <remarks/>
+        public SintomasBE Sintomas {
+            get {
+                return this.sintomasField;
+            }
+            set {
+                this.sintomasField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdInferencia {
+            get {
+                return this.idInferenciaField;
+            }
+            set {
+                this.idInferenciaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdRecurso {
+            get {
+                return this.idRecursoField;
+            }
+            set {
+                this.idRecursoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class SintomasBE {
+        
+        private DiagnosticoBE diagnosticoField;
+        
+        private int idSintomaField;
+        
+        private string descripcionField;
+        
+        /// <remarks/>
+        public DiagnosticoBE Diagnostico {
+            get {
+                return this.diagnosticoField;
+            }
+            set {
+                this.diagnosticoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdSintoma {
+            get {
+                return this.idSintomaField;
+            }
+            set {
+                this.idSintomaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class DiagnosticoBE {
+        
+        private int idDiagnosticoField;
+        
+        private string descripcionField;
+        
+        /// <remarks/>
+        public int IdDiagnostico {
+            get {
+                return this.idDiagnosticoField;
+            }
+            set {
+                this.idDiagnosticoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class SesionBE {
+        
+        private int idSesionField;
+        
+        private string usuarioField;
+        
+        private System.DateTime fechaField;
+        
+        /// <remarks/>
+        public int IdSesion {
+            get {
+                return this.idSesionField;
+            }
+            set {
+                this.idSesionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Usuario {
+            get {
+                return this.usuarioField;
+            }
+            set {
+                this.usuarioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime Fecha {
+            get {
+                return this.fechaField;
+            }
+            set {
+                this.fechaField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1064.2")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class HistoricoSintomasBE {
+        
+        private InferenciasBE inferenciaField;
+        
+        private SesionBE sesionField;
+        
+        private int idHistoricoField;
+        
+        private string descripcionField;
+        
+        /// <remarks/>
+        public InferenciasBE Inferencia {
+            get {
+                return this.inferenciaField;
+            }
+            set {
+                this.inferenciaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SesionBE Sesion {
+            get {
+                return this.sesionField;
+            }
+            set {
+                this.sesionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdHistorico {
+            get {
+                return this.idHistoricoField;
+            }
+            set {
+                this.idHistoricoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    public delegate void HelloWorldCompletedEventHandler(object sender, HelloWorldCompletedEventArgs e);
+    public delegate void BuscarInferenciaCompletedEventHandler(object sender, BuscarInferenciaCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class HelloWorldCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class BuscarInferenciaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal HelloWorldCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal BuscarInferenciaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public string Result {
+        public InferenciasBE[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((InferenciasBE[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void CrearHistoricoSintomasCompletedEventHandler(object sender, CrearHistoricoSintomasCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CrearHistoricoSintomasCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CrearHistoricoSintomasCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void CrearSesionCompletedEventHandler(object sender, CrearSesionCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CrearSesionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CrearSesionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void BuscarSesionCompletedEventHandler(object sender, BuscarSesionCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class BuscarSesionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal BuscarSesionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public SesionBE Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((SesionBE)(this.results[0]));
             }
         }
     }

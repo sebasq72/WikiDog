@@ -9,7 +9,7 @@ namespace BE
     public class InferenciasBE
     {
         public int IdInferencia { get; set; }
-        public int IdRecurso { get; set; }
+        public int? IdRecurso { get; set; }
         public SintomasBE Sintomas = new SintomasBE();
     }
 }

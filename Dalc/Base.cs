@@ -17,9 +17,9 @@ namespace Dalc
 		//objeto para la ejecucion de sentencias
 		public SqlCommand cmd = null;
 		//objeto para la lectura de registros
-		public SqlDataReader dr = null;
-        
-        public string StrConn = ConfigurationManager.ConnectionStrings["Conn"].ConnectionString;
+		public SqlDataReader dr = null;        
+
+        public string StrConn = System.Configuration.ConfigurationManager.ConnectionStrings["Conn"].ConnectionString;           
 
 		public Base()
 		{

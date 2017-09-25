@@ -22,9 +22,9 @@ namespace Dalc
                 cmd = new SqlCommand("CrearSesion", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Usuario", Usuario);    
+                cmd.Parameters.AddWithValue("@Usuario", Usuario);
 
-                id = cmd.ExecuteNonQuery();
+                id = (int)cmd.ExecuteScalar();                
             }
             catch (Exception)
             {

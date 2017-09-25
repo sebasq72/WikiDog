@@ -24,7 +24,7 @@ namespace WebServices
         SesionBC Sesion = new SesionBC();
 
         [WebMethod]
-        public List<InferenciasBE> BuscarInferencia(int? IdInferencia, int? IdRecurso)
+        public List<InferenciasBE> BuscarInferencia(int IdInferencia, int IdRecurso)
         {
             return Inferencias.BuscarInferencia(IdInferencia, IdRecurso);
         }

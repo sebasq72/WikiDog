@@ -2,34 +2,178 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="HelloWorld">
-        <s:complexType />
-      </s:element>
-      <s:element name="HelloWorldResponse">
+      <s:element name="BuscarInferencia">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdInferencia" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdRecurso" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarInferenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarInferenciaResult" type="tns:ArrayOfInferenciasBE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInferenciasBE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InferenciasBE" nillable="true" type="tns:InferenciasBE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InferenciasBE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sintomas" type="tns:SintomasBE" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdInferencia" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdRecurso" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SintomasBE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Diagnostico" type="tns:DiagnosticoBE" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdSintoma" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DiagnosticoBE">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdDiagnostico" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CrearHistoricoSintomas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObjHistoricoSintomas" type="tns:HistoricoSintomasBE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="HistoricoSintomasBE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Inferencia" type="tns:InferenciasBE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sesion" type="tns:SesionBE" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdHistorico" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SesionBE">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdSesion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CrearHistoricoSintomasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CrearHistoricoSintomasResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearSesion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearSesionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CrearSesionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarSesion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdSesion" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarSesionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarSesionResult" type="tns:SesionBE" />
           </s:sequence>
         </s:complexType>
       </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="HelloWorldSoapIn">
-    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  <wsdl:message name="BuscarInferenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarInferencia" />
   </wsdl:message>
-  <wsdl:message name="HelloWorldSoapOut">
-    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  <wsdl:message name="BuscarInferenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarInferenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrearHistoricoSintomasSoapIn">
+    <wsdl:part name="parameters" element="tns:CrearHistoricoSintomas" />
+  </wsdl:message>
+  <wsdl:message name="CrearHistoricoSintomasSoapOut">
+    <wsdl:part name="parameters" element="tns:CrearHistoricoSintomasResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrearSesionSoapIn">
+    <wsdl:part name="parameters" element="tns:CrearSesion" />
+  </wsdl:message>
+  <wsdl:message name="CrearSesionSoapOut">
+    <wsdl:part name="parameters" element="tns:CrearSesionResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarSesionSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarSesion" />
+  </wsdl:message>
+  <wsdl:message name="BuscarSesionSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarSesionResponse" />
   </wsdl:message>
   <wsdl:portType name="WikiDogSoap">
-    <wsdl:operation name="HelloWorld">
-      <wsdl:input message="tns:HelloWorldSoapIn" />
-      <wsdl:output message="tns:HelloWorldSoapOut" />
+    <wsdl:operation name="BuscarInferencia">
+      <wsdl:input message="tns:BuscarInferenciaSoapIn" />
+      <wsdl:output message="tns:BuscarInferenciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearHistoricoSintomas">
+      <wsdl:input message="tns:CrearHistoricoSintomasSoapIn" />
+      <wsdl:output message="tns:CrearHistoricoSintomasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearSesion">
+      <wsdl:input message="tns:CrearSesionSoapIn" />
+      <wsdl:output message="tns:CrearSesionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarSesion">
+      <wsdl:input message="tns:BuscarSesionSoapIn" />
+      <wsdl:output message="tns:BuscarSesionSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WikiDogSoap" type="tns:WikiDogSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+    <wsdl:operation name="BuscarInferencia">
+      <soap:operation soapAction="http://tempuri.org/BuscarInferencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearHistoricoSintomas">
+      <soap:operation soapAction="http://tempuri.org/CrearHistoricoSintomas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearSesion">
+      <soap:operation soapAction="http://tempuri.org/CrearSesion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarSesion">
+      <soap:operation soapAction="http://tempuri.org/BuscarSesion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -40,8 +184,35 @@
   </wsdl:binding>
   <wsdl:binding name="WikiDogSoap12" type="tns:WikiDogSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+    <wsdl:operation name="BuscarInferencia">
+      <soap12:operation soapAction="http://tempuri.org/BuscarInferencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearHistoricoSintomas">
+      <soap12:operation soapAction="http://tempuri.org/CrearHistoricoSintomas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearSesion">
+      <soap12:operation soapAction="http://tempuri.org/CrearSesion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarSesion">
+      <soap12:operation soapAction="http://tempuri.org/BuscarSesion" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

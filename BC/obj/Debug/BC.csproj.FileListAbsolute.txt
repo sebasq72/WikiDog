@@ -1,0 +1,9 @@
+E:\proyectoDotNET\WikiDog\BC\bin\Debug\BC.dll
+E:\proyectoDotNET\WikiDog\BC\bin\Debug\BC.pdb
+E:\proyectoDotNET\WikiDog\BC\bin\Debug\BE.dll
+E:\proyectoDotNET\WikiDog\BC\bin\Debug\Dalc.dll
+E:\proyectoDotNET\WikiDog\BC\bin\Debug\BE.pdb
+E:\proyectoDotNET\WikiDog\BC\bin\Debug\Dalc.pdb
+E:\proyectoDotNET\WikiDog\BC\obj\Debug\BC.csprojResolveAssemblyReference.cache
+E:\proyectoDotNET\WikiDog\BC\obj\Debug\BC.dll
+E:\proyectoDotNET\WikiDog\BC\obj\Debug\BC.pdb

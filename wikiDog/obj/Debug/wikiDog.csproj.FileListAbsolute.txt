@@ -1,0 +1,9 @@
+E:\proyectoDotNET\WikiDog\wikiDog\bin\wikiDog.dll
+E:\proyectoDotNET\WikiDog\wikiDog\bin\wikiDog.pdb
+E:\proyectoDotNET\WikiDog\wikiDog\bin\BE.dll
+E:\proyectoDotNET\WikiDog\wikiDog\bin\BE.pdb
+E:\proyectoDotNET\WikiDog\wikiDog\obj\Debug\wikiDog.csprojResolveAssemblyReference.cache
+E:\proyectoDotNET\WikiDog\wikiDog\obj\Debug\wikiDog.Properties.Resources.resources
+E:\proyectoDotNET\WikiDog\wikiDog\obj\Debug\wikiDog.csproj.GenerateResource.Cache
+E:\proyectoDotNET\WikiDog\wikiDog\obj\Debug\wikiDog.dll
+E:\proyectoDotNET\WikiDog\wikiDog\obj\Debug\wikiDog.pdb
