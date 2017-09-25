@@ -13,6 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceWikiDog", "WebSer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WikiDogREST", "WikiDogREST\WikiDogREST.csproj", "{B52E032F-42D8-4D8D-B682-1DC55946653C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BD", "BD", "{D4048010-A3D0-41C7-94A4-5C8EA628BC4B}"
+	ProjectSection(SolutionItems) = preProject
+		BD - WIKIDOG.sql = BD - WIKIDOG.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
