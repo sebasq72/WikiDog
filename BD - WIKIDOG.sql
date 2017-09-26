@@ -181,8 +181,8 @@ BEGIN
 	INNER JOIN Sintomas S ON I.IdSintoma = S.IdSintoma	
 	INNER JOIN Diagnostico D ON S.IdDiagnostico = D.IdDiagnostico
 	WHERE 
-		I.IdInferencia = ISNULL(I.IdInferencia, @IdInferencia)
-	AND I.IdRecurso = ISNULL(I.IdRecurso, @IdRecurso)			
+		I.IdInferencia = ISNULL(@IdInferencia, I.IdInferencia)
+	AND I.IdRecurso = ISNULL(@IdRecurso, I.IdRecurso)			
 
 END' 
 END
