@@ -12,9 +12,9 @@ namespace BC
     {
         InferenciasDALC Dalc = new InferenciasDALC();
 
-        public List<InferenciasBE> BuscarInferencia(int? IdInferencia, int? IdRecurso)
+        public List<InferenciasBE> BuscarInferencia(int? IdRecurso)
         {
-            return Dalc.BuscarInferencia(IdInferencia, IdRecurso);
+            return Dalc.BuscarInferencia(IdRecurso);
         }
     }
 }

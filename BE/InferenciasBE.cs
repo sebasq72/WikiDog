@@ -10,6 +10,6 @@ namespace BE
     {
         public int IdInferencia { get; set; }
         public int? IdRecurso { get; set; }
-        public SintomasBE Sintomas = new SintomasBE();
+        public SintomaBE Sintomas = new SintomaBE();
     }
 }

@@ -17,13 +17,15 @@ namespace WikiDogREST.Controllers
     {
         HistoricoSintomasBC HistoricoSintomas = new HistoricoSintomasBC();
         InferenciasBC Inferencias = new InferenciasBC();
+        DiagnosticoBC Diagnosticos = new DiagnosticoBC();
+        SintomaBC Sintoma = new SintomaBC(); 
         SesionBC Sesion = new SesionBC();
 
         [HttpGet]
-        [Route("BuscarInferencia/{IdInferencia}/{IdRecurso}")]
-        public List<InferenciasBE> BuscarInferencia(int? IdInferencia, int? IdRecurso)
+        [Route("BuscarInferencia/{IdRecurso}")]
+        public List<InferenciasBE> BuscarInferencia(int? IdRecurso)
         {
-            return Inferencias.BuscarInferencia(IdInferencia, IdRecurso);
+            return Inferencias.BuscarInferencia(IdRecurso);
         }
 
         [HttpGet]
@@ -49,6 +51,38 @@ namespace WikiDogREST.Controllers
         public SesionBE BuscarSesion(int IdSesion)
         {
             return Sesion.BuscarSesion(IdSesion);
+        }
+
+
+        [HttpGet]
+        [Route("BuscarDiagnosticos/{IdDiagnostico}")]
+        public List<DiagnosticoBE> BuscarDiagnosticos(int IdDiagnostico)
+        {
+            DiagnosticoBE diagnosticoBE = new DiagnosticoBE();
+            diagnosticoBE.IdDiagnostico = IdDiagnostico;
+
+            return Diagnosticos.BuscarDiagnostico(diagnosticoBE);
+        }
+
+        [HttpGet]
+        [Route("CrearDiagnostico/{Descripcion}")]
+        public int CrearDiagnostico(string Descripcion)
+        {
+            DiagnosticoBE diagnosticoBE = new DiagnosticoBE();
+            diagnosticoBE.Descripcion = Descripcion;
+
+            return Diagnosticos.CrearDiagnostico(diagnosticoBE);
+        }
+
+        [HttpGet]
+        [Route("CrearSintoma/{IdDiagnostico}/{Descripcion}")]
+        public int CrearSintoma(int IdDiagnostico, string Descripcion)
+        {
+            SintomaBE sintomaBE = new SintomaBE();
+            sintomaBE.Diagnostico.IdDiagnostico = IdDiagnostico;
+            sintomaBE.Descripcion = Descripcion;
+
+            return Sintoma.CrearSintoma(sintomaBE);
         }
 
     }

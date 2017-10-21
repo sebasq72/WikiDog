@@ -57,7 +57,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Diagnosticos\Diagnostico.aspx" />
     <Content Include="Index.aspx" />
+    <Content Include="packages.config" />
+    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Sintomas\Sintoma.aspx" />
     <Content Include="Web References\wsWikiDog\InferenciasBE.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
@@ -70,8 +82,16 @@
     </Content>
     <None Include="Web References\wsWikiDog\WikiDog.disco" />
     <Content Include="Web.config" />
+    <Content Include="wikiDog.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Diagnosticos\Diagnostico.aspx.cs">
+      <DependentUpon>Diagnostico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Diagnosticos\Diagnostico.aspx.designer.cs">
+      <DependentUpon>Diagnostico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -90,10 +110,24 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Sintomas\Sintoma.aspx.cs">
+      <DependentUpon>Sintoma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sintomas\Sintoma.aspx.designer.cs">
+      <DependentUpon>Sintoma.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web References\wsWikiDog\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="wikiDog.Master.cs">
+      <DependentUpon>wikiDog.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wikiDog.Master.designer.cs">
+      <DependentUpon>wikiDog.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +173,9 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>wikiDog_wsWikiDog_WikiDog</CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

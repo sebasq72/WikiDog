@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class SintomasBE
+    public class SintomaBE
     {
         public int IdSintoma { get; set; }        
         public DiagnosticoBE Diagnostico = new DiagnosticoBE();

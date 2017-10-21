@@ -12,5 +12,8 @@
     <Setting Name="wikiDog_wsWikiDog_WikiDog" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:50360/WikiDog.asmx</Value>
     </Setting>
+    <Setting Name="UrlRest" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:53025/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

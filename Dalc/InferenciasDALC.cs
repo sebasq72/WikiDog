@@ -12,7 +12,7 @@ namespace Dalc
     public class InferenciasDALC : Base
     {
 
-        public List<InferenciasBE> BuscarInferencia(int? IdInferencia, int? IdRecurso)
+        public List<InferenciasBE> BuscarInferencia(int? IdRecurso)
         {
             List<InferenciasBE> LstInferencias = new List<InferenciasBE>();
 
@@ -22,9 +22,6 @@ namespace Dalc
 
                 cmd = new SqlCommand("BuscarInferencias", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                if(IdInferencia!= null && IdInferencia > 0)
-                    cmd.Parameters.AddWithValue("@IdInferencia", IdInferencia);
 
                 if (IdRecurso != null && IdRecurso > 0)
                     cmd.Parameters.AddWithValue("@IdRecurso", IdRecurso);

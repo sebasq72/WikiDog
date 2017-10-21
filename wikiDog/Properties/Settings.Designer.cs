@@ -43,5 +43,14 @@ namespace wikiDog.Properties {
                 return ((string)(this["wikiDog_wsWikiDog_WikiDog"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:53025/")]
+        public string UrlRest {
+            get {
+                return ((string)(this["UrlRest"]));
+            }
+        }
     }
 }

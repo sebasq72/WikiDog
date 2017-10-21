@@ -8,7 +8,13 @@ using Dalc;
 
 namespace BC
 {
-    public class SintomasBC
+    public class SintomaBC
     {
+        SintomaDALC Dalc = new SintomaDALC();
+
+        public int CrearSintoma(SintomaBE Sintoma)
+        {
+            return Dalc.CrearSintoma(Sintoma);
+        }
     }
 }
