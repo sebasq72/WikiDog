@@ -69,7 +69,7 @@ namespace WikiDogREST.Controllers
         public int CrearDiagnostico(string Descripcion)
         {
             DiagnosticoBE diagnosticoBE = new DiagnosticoBE();
-            diagnosticoBE.Descripcion = Descripcion;
+            diagnosticoBE.Descripcion = Descripcion.ToUpper();
 
             return Diagnosticos.CrearDiagnostico(diagnosticoBE);
         }
@@ -80,7 +80,7 @@ namespace WikiDogREST.Controllers
         {
             SintomaBE sintomaBE = new SintomaBE();
             sintomaBE.Diagnostico.IdDiagnostico = IdDiagnostico;
-            sintomaBE.Descripcion = Descripcion;
+            sintomaBE.Descripcion = Descripcion.ToUpper();
 
             return Sintoma.CrearSintoma(sintomaBE);
         }

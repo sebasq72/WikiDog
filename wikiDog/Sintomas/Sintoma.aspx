@@ -8,30 +8,30 @@
 
         $(document).ready(function () {
 
-            BuscarDiagnosticos();            
+            BuscarDiagnosticos();
 
             $("#Submit").click(function () { CrearSintoma(); });
 
         });
 
-       
+
         function BuscarDiagnosticos() {
             var Url = $("#UrlRest").val() + "api/wikidog/BuscarDiagnosticos";
-            
+
             $.ajax({
-                type: "get",                
+                type: "get",
                 //crossDomain: true,
                 //async: true,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
-                },                                               
+                },
                 url: Url,
                 data: { IdDiagnostico: 0 },
                 error: function (e, e1, e2) {
                     alert("Error creando el registro." + e + " " + e1);
-                },              
-                success: function (result) {                 
-                    $.each(result, function (key, value) {                                            
+                },
+                success: function (result) {
+                    $.each(result, function (key, value) {
                         $('#SelectDiagnostico').append($('<option></option>').text(value.Descripcion).val(value.IdDiagnostico));
                     });
                 }
@@ -58,7 +58,7 @@
                 success: function (result) {
                     alert("Registro creado correctamente.");
                 }
-            });            
+            });
         }
 
     </script>
@@ -71,10 +71,12 @@
     <div id="divSintoma">
         <asp:Label Text="Sintoma" runat="server" />
         <asp:TextBox ID="txtSintoma" runat="server" ClientIDMode="Static" />
-        <br />        
     </div>
+    <br />
+    
     <asp:Label ID="Label1" Text="Diagnostico" runat="server" />
     <select id="SelectDiagnostico"></select>
+    <br />
     <br />
     <button id="Submit">Crear</button>
 </asp:Content>

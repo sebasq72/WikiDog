@@ -4,22 +4,36 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>WikiDog</title>
-            
-    <script src="../Scripts/jquery-3.2.1.min.js"></script>
 
-    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>    
+    <script src="<%= ResolveClientUrl("Scripts/jquery-3.2.1.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("Scripts/jquery-3.2.1.intellisense.js") %>"></script>
+    <script src="<%= ResolveClientUrl("Scripts/jquery.validate.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("Scripts/jquery-ui-1.12.1.min.js") %>"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:HiddenField ID="UrlRest" runat="server" ClientIDMode="Static" />
+        <div>
+            <asp:HiddenField ID="UrlRest" runat="server" ClientIDMode="Static" />
 
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+            <table>
+                <tr>
+                    <td>
+                        <a href="<%= ResolveClientUrl("Sintomas/Sintoma.aspx") %>">Crear Sintoma</a>
+                    </td>
+                    <td>
+                        <a href="<%= ResolveClientUrl("Diagnosticos/Diagnostico.aspx") %>">Crear Diagnostico</a>
+                    </td>
+                </tr>
+            </table>
+
+            <br />
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>
