@@ -48,6 +48,7 @@
     <Compile Include="SesionDALC.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SintomaDiagnosticoDALC.cs" />
     <Compile Include="SintomasDALC.cs" />
   </ItemGroup>
   <ItemGroup>

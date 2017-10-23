@@ -18,16 +18,20 @@ namespace WikiDogREST.Controllers
         HistoricoSintomasBC HistoricoSintomas = new HistoricoSintomasBC();
         InferenciasBC Inferencias = new InferenciasBC();
         DiagnosticoBC Diagnosticos = new DiagnosticoBC();
-        SintomaBC Sintoma = new SintomaBC(); 
+        SintomaBC Sintoma = new SintomaBC();
         SesionBC Sesion = new SesionBC();
+        SintomaDiagnosticoBC SintomaDiagnostico = new SintomaDiagnosticoBC();
 
+        #region Inferencia
         [HttpGet]
         [Route("BuscarInferencia/{IdRecurso}")]
         public List<InferenciasBE> BuscarInferencia(int? IdRecurso)
         {
             return Inferencias.BuscarInferencia(IdRecurso);
         }
+        #endregion
 
+        #region Historico
         [HttpGet]
         [Route("CrearHistoricoSintomas/{IdInferencia}/{IdSesion}")]
         public int CrearHistoricoSintomas(int IdInferencia, int IdSesion)
@@ -38,12 +42,14 @@ namespace WikiDogREST.Controllers
 
             return HistoricoSintomas.CrearHistoricoSintomas(ObjHistoricoSintomas);
         }
+        #endregion
 
+        #region Sesion
         [HttpGet]
-        [Route("CrearSesion/{Usuario}")]
-        public int CrearSesion(String Usuario)
+        [Route("CrearSesion/{IdSesion}")]
+        public int CrearSesion(int IdSesion)
         {
-            return Sesion.CrearSesion(Usuario);
+            return Sesion.CrearSesion();
         }
 
         [HttpGet]
@@ -52,8 +58,9 @@ namespace WikiDogREST.Controllers
         {
             return Sesion.BuscarSesion(IdSesion);
         }
+        #endregion
 
-
+        #region Diagnostico
         [HttpGet]
         [Route("BuscarDiagnosticos/{IdDiagnostico}")]
         public List<DiagnosticoBE> BuscarDiagnosticos(int IdDiagnostico)
@@ -73,7 +80,9 @@ namespace WikiDogREST.Controllers
 
             return Diagnosticos.CrearDiagnostico(diagnosticoBE);
         }
+        #endregion
 
+        #region Sintoma
         [HttpGet]
         [Route("CrearSintoma/{IdDiagnostico}/{Descripcion}")]
         public int CrearSintoma(int IdDiagnostico, string Descripcion)
@@ -85,5 +94,37 @@ namespace WikiDogREST.Controllers
             return Sintoma.CrearSintoma(sintomaBE);
         }
 
+        [HttpGet]
+        [Route("BuscarSintoma/{IdSintoma}")]
+        public List<SintomaBE> BuscarSintoma(int IdSintoma)
+        {
+            SintomaBE sintomaBE = new SintomaBE();
+            sintomaBE.IdSintoma = IdSintoma;
+
+            return Sintoma.BuscarSintoma(sintomaBE);
+        }
+        #endregion
+
+        #region Sintoma Diagnostico
+        [HttpGet]
+        [Route("CrearSintomaDiagnostico/{IdDiagnostico}/{IdSintoma}")]
+        public int CrearSintomaDiagnostico(int IdDiagnostico, int IdSintoma)
+        {
+            SintomaDiagnosticoBE sintomaDiagnosticoBE = new SintomaDiagnosticoBE();
+            sintomaDiagnosticoBE.DiagnosticoBE.IdDiagnostico = IdDiagnostico;
+            sintomaDiagnosticoBE.SintomaBE.IdSintoma = IdSintoma;
+
+            return SintomaDiagnostico.CrearSintomaDiagnostico(sintomaDiagnosticoBE);
+        }
+
+        //[HttpGet]
+        //[Route("BuscarSintomaDiagnostico")]
+        //public List<SintomaDiagnosticoBE> BuscarSintomaDiagnostico()
+        //{
+        //    SintomaDiagnosticoBE sintomaDiagnosticoBE = new SintomaDiagnosticoBE();
+
+        //    return SintomaDiagnostico.BuscarSintomaDiagnostico(sintomaDiagnosticoBE);
+        //}
+        #endregion
     }
 }

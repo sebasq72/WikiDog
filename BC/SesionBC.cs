@@ -17,9 +17,9 @@ namespace BC
             return Dalc.BuscarSesion(IdSesion);
         }
 
-        public int CrearSesion(String Usuario)
+        public int CrearSesion()
         {
-            return Dalc.CrearSesion(Usuario);
+            return Dalc.CrearSesion();
         }
     }
 }

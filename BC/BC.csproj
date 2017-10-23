@@ -46,6 +46,7 @@
     <Compile Include="SesionBC.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SintomaDiagnosticoBC.cs" />
     <Compile Include="SintomasBC.cs" />
   </ItemGroup>
   <ItemGroup>

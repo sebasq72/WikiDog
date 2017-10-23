@@ -23,8 +23,7 @@ namespace Dalc
                 cmd = new SqlCommand("BuscarInferencias", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                if (IdRecurso != null && IdRecurso > 0)
-                    cmd.Parameters.AddWithValue("@IdRecurso", IdRecurso);
+                cmd.Parameters.AddWithValue("@IdRecurso", IdRecurso);
 
                 dr = cmd.ExecuteReader();
 
@@ -34,7 +33,7 @@ namespace Dalc
 
                     ObjInferenciasBE.IdInferencia = (int)dr["IdInferencia"];
                     ObjInferenciasBE.IdRecurso = dr["IdRecurso"] != DBNull.Value ? (int?)dr["IdRecurso"] : null;
-                    
+
                     ObjInferenciasBE.Sintomas.IdSintoma = (int)dr["IdSintoma"];
                     ObjInferenciasBE.Sintomas.Descripcion = (string)dr["DescripcionSintoma"];
 

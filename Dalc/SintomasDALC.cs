@@ -38,5 +38,43 @@ namespace Dalc
             return id;
         }
 
+        public List<SintomaBE> BuscarSintoma(SintomaBE Sintoma)
+        {
+            List<SintomaBE> LstSintoma = new List<SintomaBE>();
+
+            try
+            {
+                OpenConnection();
+
+                cmd = new SqlCommand("BuscarSintoma", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                if (Sintoma.IdSintoma != null && Sintoma.IdSintoma > 0)
+                    cmd.Parameters.AddWithValue("@IdSintoma", Sintoma.IdSintoma);
+
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    SintomaBE ObjSintomaBE = new SintomaBE();
+
+                    ObjSintomaBE.IdSintoma = (int)dr["IdSintoma"];
+                    ObjSintomaBE.Descripcion = (string)dr["Descripcion"];
+
+                    LstSintoma.Add(ObjSintomaBE);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return LstSintoma;
+        }
+
+
     }
 }

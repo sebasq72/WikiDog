@@ -20,15 +20,17 @@
 
             $.ajax({
                 type: "get",
-                //crossDomain: true,
-                //async: true,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 url: Url,
                 data: { IdDiagnostico: 0 },
-                error: function (e, e1, e2) {
-                    alert("Error creando el registro." + e + " " + e1);
+                error: function (xhr, ajaxOptions, thrownError, request, error) {
+                    alert('xrs.status = ' + xhr.status + '\n' +
+                            'thrown error = ' + thrownError + '\n' +
+                            'xhr.statusText = ' + xhr.statusText + '\n' +
+                            'request = ' + request + '\n' +
+                            'error = ' + error);
                 },
                 success: function (result) {
                     $.each(result, function (key, value) {
@@ -66,8 +68,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
-
-    <asp:HiddenField ID="UrlRest" runat="server" ClientIDMode="Static" />
+    
     <div id="divSintoma">
         <asp:Label Text="Sintoma" runat="server" />
         <asp:TextBox ID="txtSintoma" runat="server" ClientIDMode="Static" />

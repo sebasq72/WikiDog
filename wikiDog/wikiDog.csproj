@@ -57,6 +57,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -99,9 +103,20 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Diagnosticos\Diagnostico.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Index.aspx" />
     <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
@@ -112,6 +127,7 @@
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="SintomaDiagnostico\SintomaDiagnostico.aspx" />
     <Content Include="Sintomas\Sintoma.aspx" />
     <Content Include="Web References\wsWikiDog\InferenciasBE.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -125,6 +141,7 @@
     </Content>
     <None Include="Web References\wsWikiDog\WikiDog.disco" />
     <Content Include="Web.config" />
+    <Content Include="WikiDog.aspx" />
     <Content Include="wikiDog.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +170,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SintomaDiagnostico\SintomaDiagnostico.aspx.cs">
+      <DependentUpon>SintomaDiagnostico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SintomaDiagnostico\SintomaDiagnostico.aspx.designer.cs">
+      <DependentUpon>SintomaDiagnostico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sintomas\Sintoma.aspx.cs">
       <DependentUpon>Sintoma.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,6 +188,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WikiDog.aspx.cs">
+      <DependentUpon>WikiDog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WikiDog.aspx.designer.cs">
+      <DependentUpon>WikiDog.aspx</DependentUpon>
     </Compile>
     <Compile Include="wikiDog.Master.cs">
       <DependentUpon>wikiDog.Master</DependentUpon>

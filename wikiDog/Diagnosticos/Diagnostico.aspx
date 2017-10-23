@@ -24,8 +24,12 @@
                 cache: false,
                 url: Url,
                 data: { Descripcion: Diagnostico },
-                error: function (e, e1, e2) {
-                    alert("Error creando el registro." + e);
+                error: function (xhr, ajaxOptions, thrownError, request, error) {
+                    alert('xrs.status = ' + xhr.status + '\n' +
+                            'thrown error = ' + thrownError + '\n' +
+                            'xhr.statusText = ' + xhr.statusText + '\n' +
+                            'request = ' + request + '\n' +
+                            'error = ' + error);
                 },
                 success: function (result) {
                     alert("Registro creado correctamente." + result);

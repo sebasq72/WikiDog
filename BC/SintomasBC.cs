@@ -16,5 +16,10 @@ namespace BC
         {
             return Dalc.CrearSintoma(Sintoma);
         }
+
+        public List<SintomaBE> BuscarSintoma(SintomaBE Sintoma)
+        {
+            return Dalc.BuscarSintoma(Sintoma);
+        }
     }
 }

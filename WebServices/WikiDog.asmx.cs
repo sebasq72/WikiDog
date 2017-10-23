@@ -36,9 +36,9 @@ namespace WebServices
         }
 
         [WebMethod]
-        public int CrearSesion(String Usuario)
+        public int CrearSesion()
         {
-            return Sesion.CrearSesion(Usuario);
+            return Sesion.CrearSesion();
         }
 
         [WebMethod]

@@ -8,9 +8,14 @@
     <title>WikiDog</title>
 
     <script src="<%= ResolveClientUrl("Scripts/jquery-3.2.1.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("Scripts/jquery-3.2.1.intellisense.js") %>"></script>
+
     <script src="<%= ResolveClientUrl("Scripts/jquery.validate.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("Scripts/jquery-ui-1.12.1.min.js") %>"></script>
+
+
+    <link href="<%= ResolveClientUrl("Content/bootstrap.min.css") %>" rel="stylesheet" media="screen" />
+    <link href="<%= ResolveClientUrl("Content/bootstrap-theme.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveClientUrl("Content/bootstrap.css") %>" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
@@ -18,17 +23,31 @@
     <form id="form1" runat="server">
         <div>
             <asp:HiddenField ID="UrlRest" runat="server" ClientIDMode="Static" />
+            <asp:HiddenField ID="IdSesion" runat="server" ClientIDMode="Static" EnableViewState="true" />
 
-            <table>
-                <tr>
-                    <td>
-                        <a href="<%= ResolveClientUrl("Sintomas/Sintoma.aspx") %>">Crear Sintoma</a>
-                    </td>
-                    <td>
-                        <a href="<%= ResolveClientUrl("Diagnosticos/Diagnostico.aspx") %>">Crear Diagnostico</a>
-                    </td>
-                </tr>
-            </table>
+            <div class="row-fluid">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="breadcrumb">
+                            <li class="icon-chevron-left hide-sidebar"><a href='#' title="Hide Sidebar" rel='tooltip'>&nbsp;</a></li>
+                            <li class="icon-chevron-right show-sidebar" style="display: none;"><a href='#' title="Show Sidebar" rel='tooltip'>&nbsp;</a></li>
+                            <li class="active">
+                                <a href="<%= ResolveClientUrl("WikiDog.aspx") %>">WikiDog</a>
+                            </li>
+                            <li>
+                                <a href="<%= ResolveClientUrl("Sintomas/Sintoma.aspx") %>">Crear Sintoma</a>
+                            </li>
+                            <li>
+                                <a href="<%= ResolveClientUrl("Diagnosticos/Diagnostico.aspx") %>">Crear Diagnostico</a>
+                            </li>
+                            <li>
+                                <a href="<%= ResolveClientUrl("SintomaDiagnostico/SintomaDiagnostico.aspx") %>">Crear Sintoma/Diagnostico</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
 
             <br />
 

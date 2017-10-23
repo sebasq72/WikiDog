@@ -12,7 +12,7 @@ namespace Dalc
     public class SesionDALC : Base
     {
 
-        public int CrearSesion(String Usuario)
+        public int CrearSesion()
         {
             int id = -1;
             try
@@ -20,9 +20,7 @@ namespace Dalc
                 OpenConnection();
 
                 cmd = new SqlCommand("CrearSesion", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@Usuario", Usuario);
+                cmd.CommandType = CommandType.StoredProcedure;                
 
                 id = (int)cmd.ExecuteScalar();                
             }
