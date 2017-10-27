@@ -45,6 +45,7 @@
     <Compile Include="HistoricoSintomas.cs" />
     <Compile Include="InferenciasDALC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultadoDALC.cs" />
     <Compile Include="SesionDALC.cs">
       <SubType>Code</SubType>
     </Compile>

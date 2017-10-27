@@ -43,6 +43,7 @@
     <Compile Include="HistoricoSintomasBC.cs" />
     <Compile Include="InferenciasBC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultadoBC.cs" />
     <Compile Include="SesionBC.cs">
       <SubType>Code</SubType>
     </Compile>

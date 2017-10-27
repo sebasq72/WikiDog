@@ -12,7 +12,7 @@ namespace wikiDog
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            UrlRest.Value = ConfigurationManager.AppSettings["UrlRest"];
+            UrlRest.Value = ConfigurationManager.AppSettings["UrlRest"];            
         }
     }
 }

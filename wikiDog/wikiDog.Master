@@ -8,14 +8,14 @@
     <title>WikiDog</title>
 
     <script src="<%= ResolveClientUrl("Scripts/jquery-3.2.1.min.js") %>"></script>
-
-    <script src="<%= ResolveClientUrl("Scripts/jquery.validate.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("Scripts/jquery-ui-1.12.1.min.js") %>"></script>
-
+    <script src="<%= ResolveClientUrl("Scripts/jquery.validate.min.js") %>"></script>    
+    <script src="<%= ResolveClientUrl("Scripts/Chart/EasyPieChart.js") %>" ></script>
+    
 
     <link href="<%= ResolveClientUrl("Content/bootstrap.min.css") %>" rel="stylesheet" media="screen" />
     <link href="<%= ResolveClientUrl("Content/bootstrap-theme.css") %>" rel="stylesheet" />
     <link href="<%= ResolveClientUrl("Content/bootstrap.css") %>" rel="stylesheet" />
+
 
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
@@ -23,7 +23,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:HiddenField ID="UrlRest" runat="server" ClientIDMode="Static" />
-            <asp:HiddenField ID="IdSesion" runat="server" ClientIDMode="Static" EnableViewState="true" />
+            <asp:HiddenField ID="IdSesion" runat="server" ClientIDMode="Static" EnableViewState="true"  ViewStateMode="Enabled" />
 
             <div class="row-fluid">
                 <div class="navbar">

@@ -21,6 +21,7 @@ namespace WikiDogREST.Controllers
         SintomaBC Sintoma = new SintomaBC();
         SesionBC Sesion = new SesionBC();
         SintomaDiagnosticoBC SintomaDiagnostico = new SintomaDiagnosticoBC();
+        ResultadoBC Resultado = new ResultadoBC();
 
         #region Inferencia
         [HttpGet]
@@ -125,6 +126,16 @@ namespace WikiDogREST.Controllers
 
         //    return SintomaDiagnostico.BuscarSintomaDiagnostico(sintomaDiagnosticoBE);
         //}
+        #endregion
+
+        #region Resultado Graficas
+        [HttpGet]
+        [Route("ResultadosGrafica/{IdSesion}")]
+        public List<ResultadoBE> ResultadosGrafica(int IdSesion)
+        {
+            return Resultado.Graficar(IdSesion);
+        }
+
         #endregion
     }
 }

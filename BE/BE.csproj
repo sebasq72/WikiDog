@@ -47,6 +47,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultadoBE.cs" />
     <Compile Include="SesionBE.cs" />
     <Compile Include="SintomaDiagnosticoBE.cs" />
     <Compile Include="SintomasBE.cs" />
