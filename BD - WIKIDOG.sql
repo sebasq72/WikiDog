@@ -2,43 +2,47 @@
 GO
 USE [WikiDog]
 GO
-/****** Object:  ForeignKey [FK_Sintoma_Diagnostico_Diagnostico]    Script Date: 10/25/2017 06:49:34 ******/
+/****** Object:  ForeignKey [FK_Sintoma_Diagnostico_Diagnostico]    Script Date: 10/27/2017 00:24:41 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Sintoma_Diagnostico_Diagnostico]') AND parent_object_id = OBJECT_ID(N'[dbo].[Sintoma_Diagnostico]'))
 ALTER TABLE [dbo].[Sintoma_Diagnostico] DROP CONSTRAINT [FK_Sintoma_Diagnostico_Diagnostico]
 GO
-/****** Object:  ForeignKey [FK_Sintoma_Diagnostico_Sintoma]    Script Date: 10/25/2017 06:49:34 ******/
+/****** Object:  ForeignKey [FK_Sintoma_Diagnostico_Sintoma]    Script Date: 10/27/2017 00:24:41 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Sintoma_Diagnostico_Sintoma]') AND parent_object_id = OBJECT_ID(N'[dbo].[Sintoma_Diagnostico]'))
 ALTER TABLE [dbo].[Sintoma_Diagnostico] DROP CONSTRAINT [FK_Sintoma_Diagnostico_Sintoma]
 GO
-/****** Object:  ForeignKey [FK_Inferencias_Sintoma]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  ForeignKey [FK_Inferencias_Sintoma]    Script Date: 10/27/2017 00:24:44 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Inferencias_Sintoma]') AND parent_object_id = OBJECT_ID(N'[dbo].[Inferencias]'))
 ALTER TABLE [dbo].[Inferencias] DROP CONSTRAINT [FK_Inferencias_Sintoma]
 GO
-/****** Object:  ForeignKey [FK_HistoricoSintomas_Inferencia]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  ForeignKey [FK_HistoricoSintomas_Inferencia]    Script Date: 10/27/2017 00:24:44 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HistoricoSintomas_Inferencia]') AND parent_object_id = OBJECT_ID(N'[dbo].[HistoricoSintomas]'))
 ALTER TABLE [dbo].[HistoricoSintomas] DROP CONSTRAINT [FK_HistoricoSintomas_Inferencia]
 GO
-/****** Object:  ForeignKey [FK_HistoricoSintomas_Sesion]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  ForeignKey [FK_HistoricoSintomas_Sesion]    Script Date: 10/27/2017 00:24:44 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HistoricoSintomas_Sesion]') AND parent_object_id = OBJECT_ID(N'[dbo].[HistoricoSintomas]'))
 ALTER TABLE [dbo].[HistoricoSintomas] DROP CONSTRAINT [FK_HistoricoSintomas_Sesion]
 GO
-/****** Object:  StoredProcedure [dbo].[CrearHistoricoSintomas]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[Resultado]    Script Date: 10/27/2017 00:24:44 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Resultado]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[Resultado]
+GO
+/****** Object:  StoredProcedure [dbo].[CrearHistoricoSintomas]    Script Date: 10/27/2017 00:24:44 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CrearHistoricoSintomas]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[CrearHistoricoSintomas]
 GO
-/****** Object:  StoredProcedure [dbo].[BuscarInferencias]    Script Date: 10/25/2017 06:49:36 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BuscarInferencias]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[BuscarInferencias]
-GO
-/****** Object:  StoredProcedure [dbo].[BuscarSintomaDiagnostico]    Script Date: 10/25/2017 06:49:36 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BuscarSintomaDiagnostico]') AND type in (N'P', N'PC'))
-DROP PROCEDURE [dbo].[BuscarSintomaDiagnostico]
-GO
-/****** Object:  StoredProcedure [dbo].[CrearSintomaDiagnostico]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[CrearSintomaDiagnostico]    Script Date: 10/27/2017 00:24:44 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CrearSintomaDiagnostico]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[CrearSintomaDiagnostico]
 GO
-/****** Object:  Table [dbo].[HistoricoSintomas]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[BuscarInferencias]    Script Date: 10/27/2017 00:24:44 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BuscarInferencias]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[BuscarInferencias]
+GO
+/****** Object:  StoredProcedure [dbo].[BuscarSintomaDiagnostico]    Script Date: 10/27/2017 00:24:44 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BuscarSintomaDiagnostico]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[BuscarSintomaDiagnostico]
+GO
+/****** Object:  Table [dbo].[HistoricoSintomas]    Script Date: 10/27/2017 00:24:44 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HistoricoSintomas_Inferencia]') AND parent_object_id = OBJECT_ID(N'[dbo].[HistoricoSintomas]'))
 ALTER TABLE [dbo].[HistoricoSintomas] DROP CONSTRAINT [FK_HistoricoSintomas_Inferencia]
 GO
@@ -48,7 +52,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[HistoricoSintomas]') AND type in (N'U'))
 DROP TABLE [dbo].[HistoricoSintomas]
 GO
-/****** Object:  Table [dbo].[Inferencias]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  Table [dbo].[Inferencias]    Script Date: 10/27/2017 00:24:44 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Inferencias_Sintoma]') AND parent_object_id = OBJECT_ID(N'[dbo].[Inferencias]'))
 ALTER TABLE [dbo].[Inferencias] DROP CONSTRAINT [FK_Inferencias_Sintoma]
 GO
@@ -60,31 +64,31 @@ GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Inferencias]') AND type in (N'U'))
 DROP TABLE [dbo].[Inferencias]
 GO
-/****** Object:  StoredProcedure [dbo].[CrearDiagnostico]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[CrearDiagnostico]    Script Date: 10/27/2017 00:24:43 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CrearDiagnostico]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[CrearDiagnostico]
 GO
-/****** Object:  StoredProcedure [dbo].[BuscarSesion]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[BuscarSesion]    Script Date: 10/27/2017 00:24:43 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BuscarSesion]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[BuscarSesion]
 GO
-/****** Object:  StoredProcedure [dbo].[BuscarSintoma]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[BuscarSintoma]    Script Date: 10/27/2017 00:24:43 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BuscarSintoma]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[BuscarSintoma]
 GO
-/****** Object:  StoredProcedure [dbo].[CrearSesion]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[CrearSesion]    Script Date: 10/27/2017 00:24:43 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CrearSesion]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[CrearSesion]
 GO
-/****** Object:  StoredProcedure [dbo].[CrearSintoma]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[CrearSintoma]    Script Date: 10/27/2017 00:24:43 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CrearSintoma]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[CrearSintoma]
 GO
-/****** Object:  StoredProcedure [dbo].[BuscarDiagnostico]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[BuscarDiagnostico]    Script Date: 10/27/2017 00:24:43 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BuscarDiagnostico]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[BuscarDiagnostico]
 GO
-/****** Object:  Table [dbo].[Sintoma_Diagnostico]    Script Date: 10/25/2017 06:49:34 ******/
+/****** Object:  Table [dbo].[Sintoma_Diagnostico]    Script Date: 10/27/2017 00:24:41 ******/
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Sintoma_Diagnostico_Diagnostico]') AND parent_object_id = OBJECT_ID(N'[dbo].[Sintoma_Diagnostico]'))
 ALTER TABLE [dbo].[Sintoma_Diagnostico] DROP CONSTRAINT [FK_Sintoma_Diagnostico_Diagnostico]
 GO
@@ -94,54 +98,19 @@ GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Sintoma_Diagnostico]') AND type in (N'U'))
 DROP TABLE [dbo].[Sintoma_Diagnostico]
 GO
-/****** Object:  Table [dbo].[Sintomas]    Script Date: 10/25/2017 06:49:34 ******/
+/****** Object:  Table [dbo].[Sintomas]    Script Date: 10/27/2017 00:24:41 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Sintomas]') AND type in (N'U'))
 DROP TABLE [dbo].[Sintomas]
 GO
-/****** Object:  Table [dbo].[Diagnostico]    Script Date: 10/25/2017 06:49:34 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Diagnostico]') AND type in (N'U'))
-DROP TABLE [dbo].[Diagnostico]
-GO
-/****** Object:  Table [dbo].[Sesion]    Script Date: 10/25/2017 06:49:34 ******/
+/****** Object:  Table [dbo].[Sesion]    Script Date: 10/27/2017 00:24:41 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Sesion]') AND type in (N'U'))
 DROP TABLE [dbo].[Sesion]
 GO
-/****** Object:  Table [dbo].[Sesion]    Script Date: 10/25/2017 06:49:34 ******/
-SET ANSI_NULLS ON
+/****** Object:  Table [dbo].[Diagnostico]    Script Date: 10/27/2017 00:24:41 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Diagnostico]') AND type in (N'U'))
+DROP TABLE [dbo].[Diagnostico]
 GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Sesion]') AND type in (N'U'))
-BEGIN
-CREATE TABLE [dbo].[Sesion](
-	[IdSesion] [int] IDENTITY(1,1) NOT NULL,
-	[Usuario] [varchar](150) NULL,
-	[Fecha] [datetime] NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[IdSesion] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
-) ON [PRIMARY]
-END
-GO
-SET ANSI_PADDING OFF
-GO
-SET IDENTITY_INSERT [dbo].[Sesion] ON
-INSERT [dbo].[Sesion] ([IdSesion], [Usuario], [Fecha]) VALUES (1, N'Sebasq72', CAST(0x0000A7F801406F27 AS DateTime))
-INSERT [dbo].[Sesion] ([IdSesion], [Usuario], [Fecha]) VALUES (2, N'72', CAST(0x0000A7F80157CFA8 AS DateTime))
-INSERT [dbo].[Sesion] ([IdSesion], [Usuario], [Fecha]) VALUES (3, N'72', CAST(0x0000A7F8015872A5 AS DateTime))
-INSERT [dbo].[Sesion] ([IdSesion], [Usuario], [Fecha]) VALUES (4, N'pepe', CAST(0x0000A7F80166675B AS DateTime))
-INSERT [dbo].[Sesion] ([IdSesion], [Usuario], [Fecha]) VALUES (5, N'xxx', CAST(0x0000A7F80166B1A5 AS DateTime))
-INSERT [dbo].[Sesion] ([IdSesion], [Usuario], [Fecha]) VALUES (6, N'xxx4', CAST(0x0000A7F801672003 AS DateTime))
-INSERT [dbo].[Sesion] ([IdSesion], [Usuario], [Fecha]) VALUES (7, N'pepedos', CAST(0x0000A7F801672E46 AS DateTime))
-INSERT [dbo].[Sesion] ([IdSesion], [Usuario], [Fecha]) VALUES (1006, NULL, CAST(0x0000A8150009F19B AS DateTime))
-INSERT [dbo].[Sesion] ([IdSesion], [Usuario], [Fecha]) VALUES (1007, NULL, CAST(0x0000A815000A5092 AS DateTime))
-INSERT [dbo].[Sesion] ([IdSesion], [Usuario], [Fecha]) VALUES (1008, NULL, CAST(0x0000A815000C32A4 AS DateTime))
-INSERT [dbo].[Sesion] ([IdSesion], [Usuario], [Fecha]) VALUES (1009, NULL, CAST(0x0000A815000C87F0 AS DateTime))
-SET IDENTITY_INSERT [dbo].[Sesion] OFF
-/****** Object:  Table [dbo].[Diagnostico]    Script Date: 10/25/2017 06:49:34 ******/
+/****** Object:  Table [dbo].[Diagnostico]    Script Date: 10/27/2017 00:24:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -171,7 +140,30 @@ INSERT [dbo].[Diagnostico] ([IdDiagnostico], [Descripcion]) VALUES (5, N'PIOMETR
 INSERT [dbo].[Diagnostico] ([IdDiagnostico], [Descripcion]) VALUES (11, N'test')
 INSERT [dbo].[Diagnostico] ([IdDiagnostico], [Descripcion]) VALUES (12, N'test2')
 SET IDENTITY_INSERT [dbo].[Diagnostico] OFF
-/****** Object:  Table [dbo].[Sintomas]    Script Date: 10/25/2017 06:49:34 ******/
+/****** Object:  Table [dbo].[Sesion]    Script Date: 10/27/2017 00:24:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Sesion]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Sesion](
+	[IdSesion] [int] IDENTITY(1,1) NOT NULL,
+	[Usuario] [varchar](150) NULL,
+	[Fecha] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IdSesion] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  Table [dbo].[Sintomas]    Script Date: 10/27/2017 00:24:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -211,7 +203,7 @@ INSERT [dbo].[Sintomas] ([IdSintoma], [IdDiagnostico], [Descripcion]) VALUES (14
 INSERT [dbo].[Sintomas] ([IdSintoma], [IdDiagnostico], [Descripcion]) VALUES (16, 11, N'PEDOS')
 INSERT [dbo].[Sintomas] ([IdSintoma], [IdDiagnostico], [Descripcion]) VALUES (17, 12, N'DD')
 SET IDENTITY_INSERT [dbo].[Sintomas] OFF
-/****** Object:  Table [dbo].[Sintoma_Diagnostico]    Script Date: 10/25/2017 06:49:34 ******/
+/****** Object:  Table [dbo].[Sintoma_Diagnostico]    Script Date: 10/27/2017 00:24:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -232,7 +224,7 @@ GO
 SET IDENTITY_INSERT [dbo].[Sintoma_Diagnostico] ON
 INSERT [dbo].[Sintoma_Diagnostico] ([IdSintomaDiagnostico], [IdDiagnostico], [IdSintoma]) VALUES (1, 1, 1)
 SET IDENTITY_INSERT [dbo].[Sintoma_Diagnostico] OFF
-/****** Object:  StoredProcedure [dbo].[BuscarDiagnostico]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[BuscarDiagnostico]    Script Date: 10/27/2017 00:24:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -252,7 +244,7 @@ BEGIN
 END' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CrearSintoma]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[CrearSintoma]    Script Date: 10/27/2017 00:24:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -273,7 +265,7 @@ BEGIN
 END' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CrearSesion]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[CrearSesion]    Script Date: 10/27/2017 00:24:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -291,7 +283,7 @@ BEGIN
 END' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[BuscarSintoma]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[BuscarSintoma]    Script Date: 10/27/2017 00:24:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -311,7 +303,7 @@ BEGIN
 END' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[BuscarSesion]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[BuscarSesion]    Script Date: 10/27/2017 00:24:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -331,7 +323,7 @@ BEGIN
 END' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CrearDiagnostico]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[CrearDiagnostico]    Script Date: 10/27/2017 00:24:43 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -351,7 +343,7 @@ BEGIN
 END' 
 END
 GO
-/****** Object:  Table [dbo].[Inferencias]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  Table [dbo].[Inferencias]    Script Date: 10/27/2017 00:24:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -379,7 +371,7 @@ INSERT [dbo].[Inferencias] ([IdInferencia], [IdRecurso], [IdSintoma]) VALUES (6,
 INSERT [dbo].[Inferencias] ([IdInferencia], [IdRecurso], [IdSintoma]) VALUES (7, 0, 7)
 INSERT [dbo].[Inferencias] ([IdInferencia], [IdRecurso], [IdSintoma]) VALUES (8, 0, 8)
 SET IDENTITY_INSERT [dbo].[Inferencias] OFF
-/****** Object:  Table [dbo].[HistoricoSintomas]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  Table [dbo].[HistoricoSintomas]    Script Date: 10/27/2017 00:24:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -389,7 +381,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[HistoricoSintomas]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [dbo].[HistoricoSintomas](
-	[IdHistorico] [int] NOT NULL,
+	[IdHistorico] [int] IDENTITY(1,1) NOT NULL,
 	[Descripcion] [varchar](50) NULL,
 	[IdInferencia] [int] NOT NULL,
 	[IdSesion] [int] NOT NULL,
@@ -402,32 +394,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  StoredProcedure [dbo].[CrearSintomaDiagnostico]    Script Date: 10/25/2017 06:49:36 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CrearSintomaDiagnostico]') AND type in (N'P', N'PC'))
-BEGIN
-EXEC dbo.sp_executesql @statement = N'
-CREATE PROCEDURE [dbo].[CrearSintomaDiagnostico]
-(
-@IdSintoma INT,
-@IdDiagnostico INT
-)
-AS
-BEGIN
-
-	INSERT INTO Sintoma_Diagnostico (IdSintoma, IdDiagnostico) 
-	VALUES(@IdSintoma, @IdDiagnostico)
-	
-	SELECT CAST(SCOPE_IDENTITY() AS INT)
-
-END
-' 
-END
-GO
-/****** Object:  StoredProcedure [dbo].[BuscarSintomaDiagnostico]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[BuscarSintomaDiagnostico]    Script Date: 10/27/2017 00:24:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -452,7 +419,7 @@ END
 ' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[BuscarInferencias]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[BuscarInferencias]    Script Date: 10/27/2017 00:24:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -465,7 +432,8 @@ EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[BuscarInferencias]
 AS
 BEGIN
 	
-	SELECT I.IdInferencia, I.IdRecurso, S.IdSintoma, S.Descripcion AS DescripcionSintoma, D.IdDiagnostico, D.Descripcion AS DescripcionDiagnostico		
+	SELECT I.IdInferencia, I.IdRecurso, S.IdSintoma, S.Descripcion AS DescripcionSintoma, D.IdDiagnostico, 
+		   D.Descripcion AS DescripcionDiagnostico		
 	FROM Inferencias I
 	INNER JOIN Sintomas S ON I.IdSintoma = S.IdSintoma
 	INNER JOIN Sintoma_Diagnostico SD ON SD.IdSintoma = s.IdSintoma	
@@ -476,7 +444,32 @@ BEGIN
 END' 
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CrearHistoricoSintomas]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  StoredProcedure [dbo].[CrearSintomaDiagnostico]    Script Date: 10/27/2017 00:24:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CrearSintomaDiagnostico]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'
+CREATE PROCEDURE [dbo].[CrearSintomaDiagnostico]
+(
+@IdSintoma INT,
+@IdDiagnostico INT
+)
+AS
+BEGIN
+
+	INSERT INTO Sintoma_Diagnostico (IdSintoma, IdDiagnostico) 
+	VALUES(@IdSintoma, @IdDiagnostico)
+	
+	SELECT CAST(SCOPE_IDENTITY() AS INT)
+
+END
+' 
+END
+GO
+/****** Object:  StoredProcedure [dbo].[CrearHistoricoSintomas]    Script Date: 10/27/2017 00:24:44 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -496,7 +489,37 @@ BEGIN
 END' 
 END
 GO
-/****** Object:  ForeignKey [FK_Sintoma_Diagnostico_Diagnostico]    Script Date: 10/25/2017 06:49:34 ******/
+/****** Object:  StoredProcedure [dbo].[Resultado]    Script Date: 10/27/2017 00:24:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Resultado]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[Resultado]
+( @IDSESION INT )
+AS
+BEGIN
+
+	DECLARE @T TABLE( DIAGNOSTICO VARCHAR(30), VALOR INT )
+
+	INSERT INTO @T 
+	SELECT D.DESCRIPCION AS DIAGNOSTICO, COUNT(SD.IDDIAGNOSTICO) AS VALOR
+	FROM HISTORICOSINTOMAS HS
+	INNER JOIN INFERENCIAS I ON I.IDINFERENCIA = HS.IDINFERENCIA
+	INNER JOIN SINTOMAS S ON S.IDSINTOMA = I.IDSINTOMA
+	INNER JOIN SINTOMA_DIAGNOSTICO SD ON SD.IDSINTOMA = S.IDSINTOMA
+	INNER JOIN DIAGNOSTICO D ON D.IDDIAGNOSTICO = SD.IDDIAGNOSTICO
+	WHERE HS.IDSESION = @IDSESION
+	GROUP BY  D.DESCRIPCION
+
+	SELECT DIAGNOSTICO, (VALOR*100.0)/(SUM( VALOR ) OVER()) AS PORCENTAJE
+	FROM @T 
+
+END' 
+END
+GO
+/****** Object:  ForeignKey [FK_Sintoma_Diagnostico_Diagnostico]    Script Date: 10/27/2017 00:24:41 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Sintoma_Diagnostico_Diagnostico]') AND parent_object_id = OBJECT_ID(N'[dbo].[Sintoma_Diagnostico]'))
 ALTER TABLE [dbo].[Sintoma_Diagnostico]  WITH CHECK ADD  CONSTRAINT [FK_Sintoma_Diagnostico_Diagnostico] FOREIGN KEY([IdDiagnostico])
 REFERENCES [dbo].[Diagnostico] ([IdDiagnostico])
@@ -504,7 +527,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Sintoma_Diagnostico_Diagnostico]') AND parent_object_id = OBJECT_ID(N'[dbo].[Sintoma_Diagnostico]'))
 ALTER TABLE [dbo].[Sintoma_Diagnostico] CHECK CONSTRAINT [FK_Sintoma_Diagnostico_Diagnostico]
 GO
-/****** Object:  ForeignKey [FK_Sintoma_Diagnostico_Sintoma]    Script Date: 10/25/2017 06:49:34 ******/
+/****** Object:  ForeignKey [FK_Sintoma_Diagnostico_Sintoma]    Script Date: 10/27/2017 00:24:41 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Sintoma_Diagnostico_Sintoma]') AND parent_object_id = OBJECT_ID(N'[dbo].[Sintoma_Diagnostico]'))
 ALTER TABLE [dbo].[Sintoma_Diagnostico]  WITH CHECK ADD  CONSTRAINT [FK_Sintoma_Diagnostico_Sintoma] FOREIGN KEY([IdSintoma])
 REFERENCES [dbo].[Sintomas] ([IdSintoma])
@@ -512,7 +535,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Sintoma_Diagnostico_Sintoma]') AND parent_object_id = OBJECT_ID(N'[dbo].[Sintoma_Diagnostico]'))
 ALTER TABLE [dbo].[Sintoma_Diagnostico] CHECK CONSTRAINT [FK_Sintoma_Diagnostico_Sintoma]
 GO
-/****** Object:  ForeignKey [FK_Inferencias_Sintoma]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  ForeignKey [FK_Inferencias_Sintoma]    Script Date: 10/27/2017 00:24:44 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Inferencias_Sintoma]') AND parent_object_id = OBJECT_ID(N'[dbo].[Inferencias]'))
 ALTER TABLE [dbo].[Inferencias]  WITH CHECK ADD  CONSTRAINT [FK_Inferencias_Sintoma] FOREIGN KEY([IdSintoma])
 REFERENCES [dbo].[Sintomas] ([IdSintoma])
@@ -520,7 +543,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_Inferencias_Sintoma]') AND parent_object_id = OBJECT_ID(N'[dbo].[Inferencias]'))
 ALTER TABLE [dbo].[Inferencias] CHECK CONSTRAINT [FK_Inferencias_Sintoma]
 GO
-/****** Object:  ForeignKey [FK_HistoricoSintomas_Inferencia]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  ForeignKey [FK_HistoricoSintomas_Inferencia]    Script Date: 10/27/2017 00:24:44 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HistoricoSintomas_Inferencia]') AND parent_object_id = OBJECT_ID(N'[dbo].[HistoricoSintomas]'))
 ALTER TABLE [dbo].[HistoricoSintomas]  WITH CHECK ADD  CONSTRAINT [FK_HistoricoSintomas_Inferencia] FOREIGN KEY([IdInferencia])
 REFERENCES [dbo].[Inferencias] ([IdInferencia])
@@ -528,7 +551,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HistoricoSintomas_Inferencia]') AND parent_object_id = OBJECT_ID(N'[dbo].[HistoricoSintomas]'))
 ALTER TABLE [dbo].[HistoricoSintomas] CHECK CONSTRAINT [FK_HistoricoSintomas_Inferencia]
 GO
-/****** Object:  ForeignKey [FK_HistoricoSintomas_Sesion]    Script Date: 10/25/2017 06:49:36 ******/
+/****** Object:  ForeignKey [FK_HistoricoSintomas_Sesion]    Script Date: 10/27/2017 00:24:44 ******/
 IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_HistoricoSintomas_Sesion]') AND parent_object_id = OBJECT_ID(N'[dbo].[HistoricoSintomas]'))
 ALTER TABLE [dbo].[HistoricoSintomas]  WITH CHECK ADD  CONSTRAINT [FK_HistoricoSintomas_Sesion] FOREIGN KEY([IdSesion])
 REFERENCES [dbo].[Sesion] ([IdSesion])
