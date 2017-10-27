@@ -19,6 +19,8 @@
                     getDataSintomas(0, 0);
                 }, 1000);
             }
+            cargarGraficas();
+            cargarBarras();
         });
 
         function CrearSesion() {
@@ -183,6 +185,12 @@
         }
 
         function cargarBarras(data) {
+            //var data = new Array(5 + 1);
+            ////data[0] = new Array(6)
+            //for (i = 0; i <= 6 ; i++) {
+            //    var nn = i * 20;
+            //    data[i] = ["Jan" + i, nn];
+            //}
 
             $.plot("#catchart", [data], {
                 series: {

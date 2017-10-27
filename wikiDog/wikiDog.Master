@@ -10,8 +10,23 @@
     <script src="<%= ResolveClientUrl("Scripts/jquery-3.2.1.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("Scripts/jquery.validate.min.js") %>"></script>    
     <script src="<%= ResolveClientUrl("Scripts/Chart/EasyPieChart.js") %>" ></script>
-    
+    <script src="<%= ResolveClientUrl("Scripts/vendors/flot/jquery.flot.categories.js") %>" ></script>
+    <script src="<%= ResolveClientUrl("Scripts/vendors/jquery-1.9.1.min.js")%>"></script>
+    <script src="<%= ResolveClientUrl("Scripts/bootstrap/js/bootstrap.min.js")%>"></script>
+    <script src="<%= ResolveClientUrl("Scripts/vendors/easypiechart/jquery.easy-pie-chart.js")%>"></script>
+    <script src="<%= ResolveClientUrl("Scripts/assets/scripts.js")%>"></script>
+     <script src="<%= ResolveClientUrl("Scripts/vendors/flot/jquery.flot.categories.js")%>"></script>
+		
+    <script src="<%= ResolveClientUrl("Scripts/vendors/flot/jquery.flot.js")%>"></script>
+    <script src="<%= ResolveClientUrl("Scripts/vendors/flot/jquery.flot.categories.js")%>"></script>
+     <link href="<%= ResolveClientUrl("Scripts/vendors/easypiechart/jquery.easy-pie-chart.css")%>" rel="stylesheet" media="screen" />
 
+    <link href="<%= ResolveClientUrl("Content/bootstrap/css/bootstrap.min.css") %>" rel="stylesheet" media="screen" />
+    <link href="<%= ResolveClientUrl("Content/bootstrap/css/bootstrap-responsive.min.css") %>" rel="stylesheet" media="screen" />
+
+     <link href="<%= ResolveClientUrl("Content/basic.css") %>" rel="stylesheet" media="screen" />
+    <link href="<%= ResolveClientUrl("Content/assets/styles.css") %>" rel="stylesheet" media="screen" />
+    <link href="<%= ResolveClientUrl("Content/basic_ie.css") %>" rel="stylesheet" media="screen" />
     <link href="<%= ResolveClientUrl("Content/bootstrap.min.css") %>" rel="stylesheet" media="screen" />
     <link href="<%= ResolveClientUrl("Content/bootstrap-theme.css") %>" rel="stylesheet" />
     <link href="<%= ResolveClientUrl("Content/bootstrap.css") %>" rel="stylesheet" />
